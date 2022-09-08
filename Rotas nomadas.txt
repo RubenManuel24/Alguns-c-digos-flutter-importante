@@ -1,0 +1,80 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_conceito/tela_principal.dart';
+import 'package:flutter_conceito/tela_secundaria.dart';
+void main(){
+  runApp(MaterialApp(
+    initialRoute: "/",
+    routes: {
+      "/p": (context) => TelaSecundaria(),
+    },
+    
+    home:TelsPrncipal() ,
+  ));
+}
+
+
+
+import 'package:flutter/material.dart';
+import 'package:flutter_conceito/tela_secundaria.dart';
+class TelsPrncipal extends StatefulWidget {
+  TelsPrncipal({Key? key}) : super(key: key);
+
+  @override
+  State<TelsPrncipal> createState() => _TelsPrncipalState();
+}
+
+class _TelsPrncipalState extends State<TelsPrncipal> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+      title: Text("Tela Principal"),
+      backgroundColor: Colors.amber,
+      ),
+      body: Container(
+        child: Column(
+          children: [
+            TextButton(onPressed: (){
+            Navigator.pushNamed(context, "/p");
+            }, 
+              child: Text("Ir para segunda tela"),  
+              style: TextButton.styleFrom(backgroundColor: Color(0xffff4853)))
+          ],
+        )
+      ),
+    );
+  }
+}
+
+
+
+
+import 'package:flutter/material.dart';
+class TelaSecundaria extends StatefulWidget {
+  TelaSecundaria({Key? key}) : super(key: key);
+
+  @override
+  State<TelaSecundaria> createState() => _TelaSecundariaState();
+}
+class _TelaSecundariaState extends State<TelaSecundaria> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Tela Secundária"),
+        backgroundColor: Colors.blue,
+      ),
+      body: Container(
+        child: Column(
+          children: [
+           TextButton(onPressed: (){
+           
+            }, 
+              child: Text("Ir para primeira tela"),  
+              style: TextButton.styleFrom(backgroundColor: Color(0xffff4853)))
+          ],
+        ),
+      ),
+    );
+  }
+}

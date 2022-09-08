@@ -1,0 +1,107 @@
+import 'package:flutter/material.dart';
+
+class Test extends StatefulWidget {
+  Test({Key? key}) : super(key: key);
+
+  @override
+  State<Test> createState() => _nameState();
+}
+
+class _nameState extends State<Test> {
+
+  var _escolha = false;
+  var _escolha2 = false;
+  var _escolha3 = false;
+  var _escolha4 = false;
+ 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("TESTAR!"),
+        backgroundColor: Colors.black,
+      ),
+      body: Container(
+        child:  Column(
+          children: [
+            CheckboxListTile(
+              secondary:Icon(Icons.co_present, color: Colors.blue,),
+              title: Text("Angola!"),
+              subtitle: Text("Países mais belos"),
+              activeColor: Colors.black,
+              checkColor: Color.fromARGB(255, 115, 183, 240),
+              value: _escolha,
+              onChanged: (value){
+                
+                setState(() {
+                   _escolha=value!;
+                });
+              }
+              
+              ),
+
+              CheckboxListTile(
+              secondary:Icon(Icons.co_present, color: Colors.blue,),
+              title: Text("RDC!"),
+              subtitle: Text("Países mais belos"),
+              activeColor: Colors.black,
+              checkColor: Color.fromARGB(255, 115, 183, 240),
+              value: _escolha2,
+              onChanged: (value){
+                
+                setState(() {
+                   _escolha2=value!;
+                });
+              
+              }
+              
+              ),
+
+              CheckboxListTile(
+              secondary:Icon(Icons.co_present, color: Colors.blue,),
+              title: Text("Brasil!"),
+              subtitle: Text("Países mais belos"),
+              activeColor: Colors.black,
+              checkColor: Color.fromARGB(255, 115, 183, 240),
+              value: _escolha3,
+              onChanged: (value){
+                
+                setState(() {
+                   _escolha3=value!;
+                });
+              }
+              
+              ),
+
+              CheckboxListTile(
+              secondary:Icon(Icons.co_present, color: Colors.blue,),
+              title: Text("Namíbia!"),
+              subtitle: Text("Países mais belos"),
+              activeColor: Colors.black,
+              checkColor: Color.fromARGB(255, 115, 183, 240),
+              value: _escolha4,
+              onChanged: (value){
+                
+                setState(() {
+                   _escolha4=value!;
+                });
+              }
+              
+              ),
+              
+              TextButton(
+              onPressed: (){
+                print("Angola: "+_escolha.toString() + 
+                      "\nRDC: "+_escolha2.toString() + 
+                      "\nBrasil: "+_escolha3.toString() + 
+                      "\nNamíbia: "+_escolha4.toString());
+              }, 
+                child: Text("CLICK", style: TextStyle(color: Colors.white)),
+                style: TextButton.styleFrom(backgroundColor: Color.fromARGB(255, 27, 8, 196)),
+              )
+          ],
+        ),
+      ),
+    );
+  }
+}

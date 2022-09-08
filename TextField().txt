@@ -1,0 +1,63 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/src/foundation/key.dart';
+import 'package:flutter/src/widgets/framework.dart';
+
+class App extends StatefulWidget {
+  const App({Key? key}) : super(key: key);
+
+  @override
+  State<App> createState() => _MyWidgetState();
+}
+class _MyWidgetState extends State<App> {
+  TextEditingController _textEditingController = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Entrada de dados"),
+        backgroundColor: Color.fromARGB(255, 30, 0, 36),
+      ),
+      body: Column(
+        children: <Widget>[
+          Padding(
+            padding: EdgeInsets.all(32),
+            child: TextField(
+              decoration: InputDecoration(
+                labelText: "Digite um valor:"
+              ),
+              keyboardType: TextInputType.text,
+              style: TextStyle(
+              color: Color.fromARGB(255, 201, 12, 12),
+              ),
+              maxLength: 50,
+              enabled: true,
+              autocorrect: true,
+              obscureText: true,
+              /*onChanged: (String e){
+                print("O TEXTO DIGITADO É: "+e);
+              },*/
+             /* onSubmitted: (String e){
+                print("O TEXTO DIGITADO É: "+e);
+              },*/
+             controller: _textEditingController,
+            ),
+          ),
+           
+           TextButton(
+            onPressed: (){
+              print("Texto digitado: "+_textEditingController.text);
+            },
+            child: Text(
+              "Salvar",
+              style: TextStyle(
+                fontSize: 12,
+                color: Colors.blue
+              ),
+              ),
+              style: TextButton.styleFrom(backgroundColor: Color.fromARGB(255, 131, 5, 5)) )
+        ],
+      ),
+    );
+  }
+}

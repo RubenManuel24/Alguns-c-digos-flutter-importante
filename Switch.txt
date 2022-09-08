@@ -1,0 +1,101 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/src/foundation/key.dart';
+import 'package:flutter/src/widgets/framework.dart';
+
+class EntradaSwitch extends StatefulWidget {
+  const EntradaSwitch({Key? key}) : super(key: key);
+
+  @override
+  State<EntradaSwitch> createState() => _MyWidgetState();
+}
+
+class _MyWidgetState extends State<EntradaSwitch> {
+
+ var _escolhaUsuario = false;
+ var _escolhaUsuario2 = false;
+ var _escolhaUsuario3 = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Entrada com Switch"),
+        backgroundColor: Colors.amberAccent,
+      ),
+      body: Container(
+        child: Column(
+          children: [
+
+           SwitchListTile(
+              title: Text("Receber notificações?"),
+              activeColor: Colors.red,
+              value: _escolhaUsuario,
+              onChanged: (var valor){
+                setState(() {
+                   _escolhaUsuario = valor;
+                });
+             }
+             ),
+
+             TextButton(
+              onPressed: (){
+
+               if(_escolhaUsuario == false){
+                   print("Desativado!");
+               }
+               else{
+                  print("Activado!");
+               }
+
+              }, 
+              child: Text("Click", style: TextStyle(
+                color: Colors.white
+              ),),
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.amber
+                ),
+              )
+
+
+
+
+             /*
+             SwitchListTile(
+              title: Text("Receber notificações?"),
+              activeColor: Colors.red,
+              value: _escolhaUsuario2,
+              onChanged: (var valor){
+                setState(() {
+                   _escolhaUsuario2 = valor;
+                });
+             }
+             ),
+
+             
+             SwitchListTile(
+              title: Text("Receber notificações?"),
+              activeColor: Colors.red,
+              value: _escolhaUsuario3,
+              onChanged: (var valor){
+                setState(() {
+                   _escolhaUsuario3 = valor;
+                });
+             }
+             ),*/
+
+            /*
+            Switch(
+              value: _escolhaUsuario,
+             onChanged: (var valor){
+                setState(() {
+                   _escolhaUsuario = valor;
+                });
+                Text("Receber notificações?")
+             }
+             ),*/
+
+          ]),
+      ),
+    );
+  }
+}

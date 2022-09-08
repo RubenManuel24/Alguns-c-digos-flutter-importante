@@ -1,0 +1,58 @@
+import 'package:flutter/material.dart';
+
+class Test extends StatefulWidget {
+  Test({Key? key}) : super(key: key);
+
+  @override
+  State<Test> createState() => _nameState();
+}
+
+class _nameState extends State<Test> {
+
+  var _escolha = false;
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("TESTAR!"),
+        backgroundColor: Colors.black,
+      ),
+      body: Container(
+        child:  Column(
+          children: [
+            
+            SwitchListTile(
+              title: Text("Receber Notificações"),
+              activeColor: Colors.black26,
+              value: _escolha , 
+              onChanged: (valor){
+
+                setState(() {
+                   _escolha = valor;
+                });
+                
+              }
+              ),
+
+              
+              
+              TextButton(
+              onPressed: (){
+
+                if(_escolha == false){
+                    print("Não irás receber Notificações");
+                }
+                else{
+                     print("Irás receber Notificações");
+                }
+              },
+
+                child: Text("CLICK", style: TextStyle(color: Colors.white)),
+                style: TextButton.styleFrom(backgroundColor: Color.fromARGB(255, 27, 8, 196)),
+              )
+          ],
+        ),
+      ),
+    );
+  }
+}

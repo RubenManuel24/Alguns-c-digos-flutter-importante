@@ -1,0 +1,14 @@
+ Future _recuperarCep() async {
+    final url = Uri.https(
+      'viacep.com.br',
+      '/ws/01311300/json/', /*{'q': '{http}'}*/
+    );
+ 
+    final response = await http.get(url);
+    
+    print('Resposta: '+ response.body);
+    //print('Resposta: '+response.statusCode.toString());
+  }
+
+
+ Versão do http: ^0.13.4
